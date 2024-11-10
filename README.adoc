@@ -1,0 +1,23 @@
+= kabin
+:toc: preamble
+
+A simple PasteBin alternative, written in Go.
+
+Pronounced like cabin.
+The first two letters of my username combined with "bin".
+
+== About
+
+This project is a simple place to store code.
+
+=== Built with
+
+* https://go.dev[Go]
+* https://go-chi.io[Chi]
+* https://ace.c9.io[Ace]
+
+== License
+
+This project is licensed under the Unlicense.
+Learn more at https://unlicense.org.
+
