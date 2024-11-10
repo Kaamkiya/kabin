@@ -4,8 +4,11 @@ import (
 	"flag"
 	"net/http"
 	"strconv"
+	"os"
+	"path/filepath"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func Run() {
@@ -13,11 +16,26 @@ func Run() {
 	flag.Parse()
 
 	r := chi.NewRouter()
+
+	r.Use(middleware.Logger)
+	r.Use(middleware.Recoverer)
+	r.Use(middleware.CleanPath)
+
 	r.Get("/", editor)
+
+	fs := http.FileServer(http.Dir(filepath.Join("web", "static")))
+	r.Handle("/static/*", http.StripPrefix("/static/", fs))
 
 	http.ListenAndServe(":"+strconv.Itoa(*flagPort), r) 
 }
 
 func editor(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello, world!"))
+	page, err := os.ReadFile(filepath.Join("web", "index.html"))
+
+	if err != nil {
+		w.Write([]byte("ERROR"))
+		panic(err)
+	}
+
+	w.Write(page)
 }
