@@ -6,14 +6,23 @@
     <link href="https://cdn.jsdelivr.net/npm/ace-builds@1.36.4/css/ace.min.css" rel="stylesheet">
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+      html, body {
+        font-family: "JetBrains Mono";
+      }
+
       #panel {
         position: absolute;
         top: 0;
         bottom: 95vh;
         right: 0;
         left: 0;
+        background-color: #1b1f23;
+        padding: 0.5vh;
+        display: flex;
       }
-      #editor { 
+      #editor {
         position: absolute;
         top: 5vh;
         right: 0;
@@ -24,14 +33,13 @@
   </head>
   <body>
     <div id="panel">
-      <select name="language" id="language-select">
-        <option value="golang">Golang</option>
-        <option value="javascript">JavaScript</option>
-      </select>
+      <h3 style="color:white">kabin</h3>
+      <select name="language" id="language-select" float="left" style="float:left"></select>
     </div>
     <div id="editor"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.4/ace.min.js"></script>
 
+    <script src="/static/ace-langs.js"></script>
     <script src="/static/index.js"></script>
   </body>
 </html>
