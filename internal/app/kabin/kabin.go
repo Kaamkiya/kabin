@@ -61,7 +61,11 @@ func Run() {
 }
 
 func editor(w http.ResponseWriter, r *http.Request) {
-	if err := tmpl.Execute(w, db.Paste{}); err != nil {
+	p := db.Paste{
+		Language: "text",
+	}
+	
+	if err := tmpl.Execute(w, p); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("ERROR 500"))
 	}

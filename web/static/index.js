@@ -19,11 +19,11 @@ languageSelector.onchange = () => {
 languageSelector.selectedIndex = aceLangs.indexOf(language);
 
 const saveButton = document.querySelector("#save-btn");
-saveButton.onclick = () => {
+saveButton.onclick = async function() {
   const content = editor.getValue();
   const valueToHash = content + Date.now().toString();
 
-  fetch("/save", {
+  const res = await fetch("/save", {
     method: "POST",
     body: JSON.stringify(
       {
@@ -35,5 +35,8 @@ saveButton.onclick = () => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(res => console.log(res.json()));
+  });
+  const data = await res.json();
+  console.log(data);
+  window.location.pathname += data.id;
 }

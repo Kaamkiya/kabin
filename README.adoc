@@ -20,7 +20,8 @@ This project is a simple place to store code.
 
 * Add expiry (max two weeks)
 * Improve panel formatting
-* Auto-redirect to saved file
+* Add "clone and edit" button
+* Add "create new" button
 
 == License
 
