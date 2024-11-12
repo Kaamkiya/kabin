@@ -16,6 +16,12 @@ This project is a simple place to store code.
 * https://go-chi.io[Chi]
 * https://ace.c9.io[Ace]
 
+== Roadmap
+
+* Add expiry (max two weeks)
+* Improve panel formatting
+* Auto-redirect to saved file
+
 == License
 
 This project is licensed under the Unlicense.
