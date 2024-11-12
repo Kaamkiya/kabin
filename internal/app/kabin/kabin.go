@@ -86,10 +86,9 @@ func save(w http.ResponseWriter, r *http.Request) {
 
 	if err := json.NewDecoder(r.Body).Decode(&p); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("ERROR"))
+		w.Write([]byte("ERROR 500"))
 	}
-
-	defer r.Body.Close()
+	r.Body.Close()
 
 	if err := db.AddPaste(p); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)

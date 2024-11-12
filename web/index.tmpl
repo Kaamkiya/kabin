@@ -29,9 +29,17 @@
         bottom: 0;
         left: 0;
       }
+      #hidden {
+        opacity: 0;
+        top: 0;
+        right: 0;
+        left: 100vw;
+        bottom: 100vh;
+      }
     </style>
   </head>
   <body>
+    <p id="hidden">{{.Language}}</p>
     <div id="panel">
       <h3 style="color:white">kabin</h3>
       <select name="language" id="language-select" float="left" style="float:left"></select>
