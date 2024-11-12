@@ -63,3 +63,14 @@ cloneButton.onclick = () => {
   sessionStorage.setItem("prevContent", editor.getValue());
   window.location.pathname = "/";
 }
+
+const copyLinkButton = document.querySelector("#copy-btn");
+copyLinkButton.onclick = async function() {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    alert("Copied!");
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
