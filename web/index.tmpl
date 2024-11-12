@@ -7,9 +7,14 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 
       html, body {
-        font-family: "JetBrains Mono";
+        font-family: "Titillium Web";
+      }
+
+      button {
+        font-family: "Titillium Web";
       }
 
       #panel {
@@ -28,6 +33,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+	font-family: "JetBrains Mono";
       }
       #hidden {
         opacity: 0;
@@ -44,7 +50,9 @@
       <h3 style="color:white">kabin</h3>
       <select name="language" id="language-select" float="left" style="float:left"></select>
       <button id="save-btn">Save</button>
-      <!--<button id="new-btn">New</button>-->
+      <button id="new-btn">New</button>
+      <button id="clone-btn">Clone and edit</button>
+      <button id="copy-btn">Copy link</button>
     </div>
     <div id="editor">{{.Content}}</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.4/ace.min.js"></script>

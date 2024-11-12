@@ -2,9 +2,18 @@ import fnv1a from "https://cdn.jsdelivr.net/npm/@sindresorhus/fnv1a@3.1.0/index.
 
 const language = document.querySelector("#hidden").innerText;
 
+// Initialize the editor
+
 const editor = ace.edit("editor");
 editor.setTheme("ace/theme/github_dark");
 editor.session.setMode("ace/mode/"+language);
+
+if (sessionStorage.getItem("prevContent")) {
+  editor.setValue(sessionStorage.getItem("prevContent"));
+  sessionStorage.clear();
+}
+
+// Language selection dropdown
 
 const languageSelector = document.querySelector("#language-select");
 
@@ -17,6 +26,8 @@ languageSelector.onchange = () => {
 }
 
 languageSelector.selectedIndex = aceLangs.indexOf(language);
+
+// Buttons
 
 const saveButton = document.querySelector("#save-btn");
 saveButton.onclick = async function() {
@@ -39,4 +50,16 @@ saveButton.onclick = async function() {
   const data = await res.json();
   console.log(data);
   window.location.pathname += data.id;
+}
+
+const newButton = document.querySelector("#new-btn");
+newButton.onclick = () => {
+  editor.setValue("");
+  window.location.pathname = "/";
+}
+
+const cloneButton = document.querySelector("#clone-btn");
+cloneButton.onclick = () => {
+  sessionStorage.setItem("prevContent", editor.getValue());
+  window.location.pathname = "/";
 }
