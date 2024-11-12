@@ -1,7 +1,7 @@
 = kabin
 :toc: preamble
 
-A simple PasteBin alternative, written in Go.
+A simple PasteBin alternative, written in Go, with raw HTML, CSS and JS for the frontend.
 
 Pronounced like cabin.
 The first two letters of my username combined with "bin".
@@ -20,8 +20,6 @@ This project is a simple place to store code.
 
 * Add expiry (max two weeks)
 * Improve panel formatting
-* Add "clone and edit" button
-* Add "create new" button
 
 == License
 
