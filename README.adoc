@@ -16,6 +16,34 @@ This project is a simple place to store code.
 * https://go-chi.io[Chi]
 * https://ace.c9.io[Ace]
 
+== Usage
+
+=== As an admin
+
+* Install with Go:
+[source,bash]
+----
+git clone https://codeberg.org/Kaamkiya/kabin
+cd kabin
+go build ./cmd/kabin/
+----
+
+* Run (this **must** be done from the root of the repo
+[source,bash]
+----
+./kabin # Use -port to specify something other than 47623
+----
+
+* Enjoy! Saved pastes are stored in pastes.db if you want to see them.
+
+=== As a user
+
+* Visit the site
+* Set a language (default: plain text)
+* Enter something (NOT something personal; pastes aren't encrypted)
+* Copy the link
+* Send it to someone
+
 == Roadmap
 
 * Add expiry (max two weeks)
